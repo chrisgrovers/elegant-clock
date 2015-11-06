@@ -1,0 +1,57 @@
+.clock {
+  border-radius: 50%;
+  /*background-color: red;*/
+  background-size: 88%;
+  height: 20em;
+  padding-bottom: 31%;
+  position: relative;
+  width: 20em;
+}
+
+.minutes-container, .hours-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  background: #000;
+  height: 33.5%;
+  left: 48.75%;
+  position: absolute;
+  top: 17%;
+  transform-origin: 50% 100%;
+  width: 2.2%;
+}
+
+.minutes {
+  background: #000;
+  height: 40%;
+  left: 49%;
+  position: absolute;
+  top: 10%;
+  transform-origin: 50% 100%;
+  width: 2%;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes etator {
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+
+.hours-container {
+  animation: rotate 15s infinite linear;
+}
+.minutes-container {
+  animation: etator 15s infinite linear;
+}
+
