@@ -1,11 +1,11 @@
 .clock {
-  border-radius: 50%;
-  /*background-color: red;*/
-  background-size: 88%;
-  height: 20em;
-  padding-bottom: 31%;
-  position: relative;
-  width: 20em;
+    display: inline-block;
+    border-radius: 50%;
+    /*background-color: red;*/
+    background-size: 88%;
+    height: 3.35vw;
+    position: relative;
+    width: 3.35vw;
 }
 
 .minutes-container, .hours-container {
@@ -18,12 +18,12 @@
 
 .hours {
   background: #000;
-  height: 33.5%;
+  height: 36%;
   left: 48.75%;
   position: absolute;
   top: 17%;
   transform-origin: 50% 100%;
-  width: 2.2%;
+  width: 7.5%;
 }
 
 .minutes {
@@ -33,7 +33,7 @@
   position: absolute;
   top: 10%;
   transform-origin: 50% 100%;
-  width: 2%;
+  width: 7%;
 }
 
 @keyframes rotate {
@@ -49,9 +49,9 @@
 }
 
 .hours-container {
-  animation: rotate 15s infinite linear;
+  animation: rotate 5s infinite linear;
 }
 .minutes-container {
-  animation: etator 15s infinite linear;
+  animation: etator 5s infinite linear;
 }
 
