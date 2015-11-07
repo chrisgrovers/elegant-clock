@@ -22,7 +22,7 @@
   position: absolute;
   top: 17%;
   transform-origin: 50% 100%;
-  width: 5.1%;
+  width: 7.5%;
 }
 
 .minutes {
@@ -32,7 +32,7 @@
   position: absolute;
   top: 10%;
   transform-origin: 50% 100%;
-  width: 5%;
+  width: 7%;
 }
 
 @keyframes rotate {
