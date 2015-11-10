@@ -2,9 +2,9 @@
 // css animation implemented from https://cssanimation.rocks/clocks/
 
 
-// each number is 6 x 5 units with zero in between, but 3 units 
-// center is 5,14
+// each number is 6 x 5 units with zero units in between, but 3 units 
 // surrounding each side of whole number display unit
+// center is 5,14
 
 $(document).ready(function() {
 
@@ -50,14 +50,25 @@ $(document).ready(function() {
       var deltaX = centerX - x;
       var deltaY = centerY - y;
       var rad = Math.atan2(deltaY, deltaX);
+      // var deg = rad * (180 / Math.PI) + 90;
       var deg = rad * (180 / Math.PI) + 90;
       var distance = Math.sqrt(Math.abs(centerX - x) + Math.abs(centerY - y));
 
       for(var i = 0; i < clock.children.length; i++) {
         var child = clock.children()[i];
+        // set start rotation
         child.children[0].style.webkitTransform = 'rotateZ(' + deg + 'deg)';
         child.children[0].style.transform = 'rotateZ(' + deg + 'deg)';
-        child.style.animationDelay = distance + 's';
+        // set delay for a nice effect
+        // add animation after?
+        if (child.classList[0] === 'minutes-container') {
+          // end point should be at 225 degrees
+          child.style.animation = 'rotate 3s 1 linear, rotate 3s 1 ease-out'//ease-out
+        } else if (child.classList[0] === 'hours-container') {
+          child.style.animation = 'etator 3s 1 linear, etator 3s 1 ease-out'//ease-out
+        }
+        
+        child.style.animationDelay = distance + 's,' + (3 + distance) + 's';
 
       }
     }
