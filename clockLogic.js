@@ -37,44 +37,47 @@ $(document).ready(function() {
     var location = x + '_' + y
     $clock.attr('id', location);
 
-    var setDelay = function(clock, x, y) {
-      var distance = Math.sqrt(Math.abs(centerX - x) + Math.abs(centerY - y));
-      console.log('distance is', distance)
-      for(var i = 0; i < clock.children.length; i++) {
-        var child = clock.children()[i];
-        child.children[0].style.animationDelay = distance + 's';
-      }
-    }
+    // var setDelay = function(clock, x, y) {
+    //   var distance = Math.sqrt(Math.abs(centerX - x) + Math.abs(centerY - y));
+    //   console.log('distance is', distance)
+    //   for(var i = 0; i < clock.children.length; i++) {
+    //     var child = clock.children()[i];
+    //     child.children[0].style.animationDelay = distance + 's';
+    //   }
+    // }
 
     var setStartAngle = function(clock, x, y) {
       var deltaX = centerX - x;
       var deltaY = centerY - y;
       var rad = Math.atan2(deltaY, deltaX);
-      // var deg = rad * (180 / Math.PI) + 90;
       var deg = rad * (180 / Math.PI) + 90;
       var distance = Math.sqrt(Math.abs(centerX - x) + Math.abs(centerY - y));
 
       for(var i = 0; i < clock.children.length; i++) {
         var child = clock.children()[i];
-        // set start rotation
-        child.children[0].style.webkitTransform = 'rotateZ(' + deg + 'deg)';
-        child.children[0].style.transform = 'rotateZ(' + deg + 'deg)';
-        // set delay for a nice effect
-        // add animation after?
+        // set start rotation.... When modifying the transform rotateZ property, this is the end point.
+        child.children[0].style.webkitTransform = 'rotateZ(' + 225 + 'deg)';
+
         if (child.classList[0] === 'minutes-container') {
           // end point should be at 225 degrees
-          child.style.animation = 'rotate 3s 1 linear, rotate 3s 1 ease-out'//ease-out
+          // child.children[0].style.webkitTransform = 'rotateZ(' + 225 + 'deg)';
+          var rotate = 720 + deg - 225;
+          child.style.transform = 'rotateZ(' + rotate + 'deg)';
         } else if (child.classList[0] === 'hours-container') {
-          child.style.animation = 'etator 3s 1 linear, etator 3s 1 ease-out'//ease-out
+          var rotate = 720 - deg + 225;
+
+          child.style.transform = 'rotateZ(-' + rotate + 'deg)';
         }
         
-        child.style.animationDelay = distance + 's,' + (3 + distance) + 's';
+        // for testing
+        // child.style.animationDelay = distance + 60 + 's';
+        // for deployment
+        child.style.animationDelay = distance + 's';
 
       }
     }
 
     setStartAngle($clock, x, y);
-    // setDelay($clock, x, y);
 
     return $clock;
   }

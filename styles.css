@@ -37,24 +37,24 @@
 
 @keyframes rotate {
   100% {
-    transform: rotateZ(360deg);
+    transform: rotateZ(720deg);
   }
 }
 
 @keyframes etator {
   100% {
-    transform: rotateZ(-360deg);
+    transform: rotateZ(-720deg);
   }
 }
 
 .hours-container {
-  animation: rotate 3s 1 linear;
+  animation: rotate 9s 1 ease-out;
   -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
   animation-fill-mode: forwards;
 }
 
 .minutes-container {
-  animation: etator 3s 1 linear;
+  animation: etator 9s 1 ease-out;
   -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
   animation-fill-mode: forwards;
 }
