@@ -48,9 +48,14 @@
 }
 
 .hours-container {
-  animation: rotate 5s infinite linear;
+  animation: rotate 3s 1 linear;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
 }
+
 .minutes-container {
-  animation: etator 5s infinite linear;
+  animation: etator 3s 1 linear;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
 }
 
