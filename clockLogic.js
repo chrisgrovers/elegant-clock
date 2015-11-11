@@ -7,6 +7,19 @@
 // center is 5,14
 
 $(document).ready(function() {
+  var numbers = {
+    '1': [], 
+    '2': [], 
+    '3': [], 
+    '4': [], 
+    '5': [], 
+    '6': [], 
+    '7': [], 
+    '8': [], 
+    '9': [], 
+    '0': [], 
+    ':': [],
+  }
 
   var initClock = function(x, y) {
     var centerX = 14;
@@ -56,17 +69,28 @@ $(document).ready(function() {
       for(var i = 0; i < clock.children.length; i++) {
         var child = clock.children()[i];
         // set start rotation.... When modifying the transform rotateZ property, this is the end point.
-        child.children[0].style.webkitTransform = 'rotateZ(' + 225 + 'deg)';
+        // there is a difference between settign the start angle for child, and child.children[0]
+        // need to have two separate animations, one for child of  child, and one for child
 
+        child.children[0].style.webkitTransform = 'rotateZ(' + deg + 'deg)';
+        console.log('child classlist is', child.children[0]);
         if (child.classList[0] === 'minutes-container') {
           // end point should be at 225 degrees
-          // child.children[0].style.webkitTransform = 'rotateZ(' + 225 + 'deg)';
-          var rotate = 720 + deg - 225;
-          child.style.transform = 'rotateZ(' + rotate + 'deg)';
+          // var rotate = 360 + deg - 225;
+          var rotate = 720;
+          child.children[0].style.transform = 'rotateZ(' + rotate + 'deg)';
+          child.children[0].style.animationDuraton = '1s';
+          child.children[0].style.animationIterationCount = '1';
+          child.children[0].style.animationTimingFunction = 'ease-out';
+          child.children[0].style.animationDelay = (6 + distance) + 's';
         } else if (child.classList[0] === 'hours-container') {
-          var rotate = 720 - deg + 225;
-
-          child.style.transform = 'rotateZ(-' + rotate + 'deg)';
+          // var rotate = deg + 225;
+          var rotate = 720;
+          child.children[0].style.transform = 'rotateZ(-' + rotate + 'deg)';
+          child.children[0].style.animationDuraton = '1s';
+          child.children[0].style.animationIterationCount = '1';
+          child.children[0].style.animationTimingFunction = 'ease-out';
+          child.children[0].style.animationDelay = (6 + distance) + 's';
         }
         
         // for testing
