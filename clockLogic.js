@@ -77,7 +77,7 @@ $(document).ready(function() {
         if (child.classList[0] === 'minutes-container') {
           // end point should be at 225 degrees
           // var rotate = 360 + deg - 225;
-          var rotate = 720;
+          var rotate = 720 + deg;
           child.children[0].style.transform = 'rotateZ(' + rotate + 'deg)';
           child.children[0].style.animationDuraton = '1s';
           child.children[0].style.animationIterationCount = '1';
@@ -85,7 +85,7 @@ $(document).ready(function() {
           child.children[0].style.animationDelay = (6 + distance) + 's';
         } else if (child.classList[0] === 'hours-container') {
           // var rotate = deg + 225;
-          var rotate = 720;
+          var rotate = 720 - deg;
           child.children[0].style.transform = 'rotateZ(-' + rotate + 'deg)';
           child.children[0].style.animationDuraton = '1s';
           child.children[0].style.animationIterationCount = '1';
