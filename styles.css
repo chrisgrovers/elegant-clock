@@ -1,7 +1,6 @@
 .clock {
     display: inline-block;
     border-radius: 50%;
-    /*background-color: red;*/
     background-size: 88%;
     height: 3.35vw;
     position: relative;
@@ -38,20 +37,25 @@
 
 @keyframes rotate {
   100% {
-    transform: rotateZ(360deg);
+    transform: rotateZ(720deg);
   }
 }
 
 @keyframes etator {
   100% {
-    transform: rotateZ(-360deg);
+    transform: rotateZ(-720deg);
   }
 }
 
 .hours-container {
-  animation: rotate 5s infinite linear;
+  animation: rotate 6s 1 linear;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
 }
+
 .minutes-container {
-  animation: etator 5s infinite linear;
+  animation: etator 6s 1 linear;
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
 }
 
