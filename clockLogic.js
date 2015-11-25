@@ -50,15 +50,6 @@ $(document).ready(function() {
     var location = x + '_' + y
     $clock.attr('id', location);
 
-    // var setDelay = function(clock, x, y) {
-    //   var distance = Math.sqrt(Math.abs(centerX - x) + Math.abs(centerY - y));
-    //   console.log('distance is', distance)
-    //   for(var i = 0; i < clock.children.length; i++) {
-    //     var child = clock.children()[i];
-    //     child.children[0].style.animationDelay = distance + 's';
-    //   }
-    // }
-
     var setStartAngle = function(clock, x, y) {
       var deltaX = centerX - x;
       var deltaY = centerY - y;
@@ -74,23 +65,25 @@ $(document).ready(function() {
 
         child.children[0].style.webkitTransform = 'rotateZ(' + deg + 'deg)';
         console.log('child classlist is', child.children[0]);
+        // at this point, clocks should be facing the correct direction, and will rotate the correct ammount
+        // should add an extra rotation to end at the correct point.
         if (child.classList[0] === 'minutes-container') {
           // end point should be at 225 degrees
           // var rotate = 360 + deg - 225;
-          var rotate = 720 + deg;
-          child.children[0].style.transform = 'rotateZ(' + rotate + 'deg)';
-          child.children[0].style.animationDuraton = '1s';
-          child.children[0].style.animationIterationCount = '1';
-          child.children[0].style.animationTimingFunction = 'ease-out';
-          child.children[0].style.animationDelay = (6 + distance) + 's';
+          // var rotate = 720 + deg;
+          // child.children[0].style.transform = 'rotateZ(' + rotate + 'deg)';
+          // child.children[0].style.animationDuraton = '1s';
+          // child.children[0].style.animationIterationCount = '1';
+          // child.children[0].style.animationTimingFunction = 'ease-out';
+          // child.children[0].style.animationDelay = (6 + distance) + 's';
         } else if (child.classList[0] === 'hours-container') {
           // var rotate = deg + 225;
-          var rotate = 720 - deg;
-          child.children[0].style.transform = 'rotateZ(-' + rotate + 'deg)';
-          child.children[0].style.animationDuraton = '1s';
-          child.children[0].style.animationIterationCount = '1';
-          child.children[0].style.animationTimingFunction = 'ease-out';
-          child.children[0].style.animationDelay = (6 + distance) + 's';
+          // var rotate = 720 - deg;
+          // child.children[0].style.transform = 'rotateZ(-' + rotate + 'deg)';
+          // child.children[0].style.animationDuraton = '1s';
+          // child.children[0].style.animationIterationCount = '1';
+          // child.children[0].style.animationTimingFunction = 'ease-out';
+          // child.children[0].style.animationDelay = (6 + distance) + 's';
         }
         
         // for testing
